@@ -8,25 +8,28 @@
     <title>Birds Name Index</title>
     <link rel="icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./icon.png">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <script src="./assets/js/main.js" defer></script>
   </head>
   <body>
     <header>
+        <img src="./favicon.ico" alt="Birds Name Index">
         <h1>Birds Name Index</h1>
     </header>
 
     <main>
         <form>
             <input id="search" placeholder="输入中文鸟名">
-            <input type="reset" value="Reset">
+            <input id="reset" type="reset" value="Reset">
             <div id="dropdown" class="hidden"></div>
         </form>
         <div id="results">
-            中文名：<span class="zh"></span><br>
-            英文名：<span class="en"></span><br>
-            日文名：<span class="jp"></span><br>
-            稀有度：<span class="rarity"></span>
+            <div>中文名：<span class="zh"></span></div>
+            <div>英文名：<span class="en"></span></div>
+            <div>日文名：<span class="jp"></span></div>
+            <div>稀有度：<span class="rarity"></span></div>           
             <hr>
             <a>More on avibase</a>
         </div>
@@ -34,6 +37,8 @@
 
     <footer>
         <span>&copy 2026 Yunpeng Wang</span>
+        <span>・</span>
+        <a href="https://www.beholdwild.org">Behold the Wild</a>
     </footer>
   </body>
 </html>

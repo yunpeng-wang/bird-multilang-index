@@ -48,6 +48,7 @@ function showResult(entry) {
 }
 
 const input = document.getElementById("search");
+const reset = document.getElementById("reset");
 const dropdownMenu = document.getElementById("dropdown");
 const results = document.getElementById("results");
 
@@ -59,16 +60,22 @@ const aLink = results.querySelector("a");
 
 input.addEventListener("input", (e) => {
   if (!data) return;
-  
+
   const value = e.target.value.trim();
   if (!value) {
     dropdownMenu.classList.add("hidden");
     dropdownMenu.innerHTML = "";
     return;
   }
-  dropdownMenu.classList.remove("hidden");
   const list = searchZhNames(value);
-  render(list);
+  if (list.length > 0) {
+    dropdownMenu.classList.remove("hidden");
+    render(list);
+  }
+});
+
+reset.addEventListener("click", () => {
+  dropdownMenu.classList.add("hidden");
 });
 
 dropdownMenu.addEventListener("click", (e) => {
