@@ -1,0 +1,74 @@
+:root {
+  --theme-color: rgb(240, 240, 240);
+  --primary-color: rgb(30, 30, 31);
+  --secondary-color: rgb(96, 96, 98);
+}
+
+body {
+  color: var(--primary-color);
+  background-color: var(--theme-color);
+  font-size: 18px;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+footer {
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin: 40px auto;
+
+  & form {
+    position: relative;
+  }
+}
+
+#search {
+  font-size: 14px;
+}
+
+#dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & span {
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      background-color: rgb(160, 160, 160);
+    }
+  }
+}
