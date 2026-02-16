@@ -6,7 +6,7 @@ header img {
 
 main {
   display: flex;
-  height: calc(100vh - var(--header-footer-height)*2);
+  height: calc(100vh - var(--header-footer-height) * 2);
   flex-direction: column;
   gap: 20px;
   align-items: center;
@@ -15,6 +15,35 @@ main {
 
   & form {
     position: relative;
+  }
+}
+
+#lang-switch {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0 auto;
+
+  &:active {
+    background-color: #ddd;
+  }
+
+  &::after {
+    width: 100%;
+    position: absolute;
+    content: "中文搜索";
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  main[data-searchlang="jp"] &::after {
+    content: "日语搜索";
   }
 }
 
@@ -42,7 +71,7 @@ main {
   }
 }
 
-#results div{
+#results div {
   margin-bottom: 8px;
   font-weight: bold;
 
@@ -55,7 +84,7 @@ footer a {
   color: inherit;
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
   main {
     align-items: normal;
 
