@@ -65,40 +65,44 @@ class BirdData:
 zh_html = os.path.join(databse_dir, "zh.html")
 jp_html = os.path.join(databse_dir, "jp.html")
 
-bird_data_zh = parse_html(open(zh_html, "r", encoding="utf-8"), "zh")
+bird_data = parse_html(open(zh_html, "r", encoding="utf-8"), "zh")
 bird_data_jp = parse_html(open(jp_html, "r", encoding="utf-8"), "jp")
 
 good_for_concat = True
-if len(bird_data_zh.aves) == len(bird_data_jp.aves):
-    for i in range(len(bird_data_zh.aves)):
-        if bird_data_zh.aves[i] != bird_data_jp.aves[i]:
+if len(bird_data.aves) == len(bird_data_jp.aves):
+    for i in range(len(bird_data.aves)):
+        if bird_data.aves[i] != bird_data_jp.aves[i]:
             good_for_concat = False
             break
 
 if good_for_concat:
-    bird_data_zh.jp = bird_data_jp.jp
+    bird_data.jp = bird_data_jp.jp
     print("🟢Two data merged!")
 else:
     print("🔴Two data are not eligible to be concatenated!")
 
 json_content = {}
 json_content["species"] = {}
-json_content_species_idx = 0
 json_content["zh_index"] = {}
-json_content_zh_idx = 0
+json_content["jp_index"] = {}
 
-for i in range(len(bird_data_zh.zh)):
-    json_content["species"][bird_data_zh.avibaseid[i]] = {
-        "aves": f"{bird_data_zh.aves[i]}",
-        "en": f"{bird_data_zh.en[i]}",
-        "zh": f"{bird_data_zh.zh[i]}",
-        "jp": f"{bird_data_zh.jp[i]}",
-        "link": f"{bird_data_zh.link[i]}",
-        "rarity": f"{bird_data_zh.rarity[i]}",
+for i in range(len(bird_data.zh)):
+    json_content["species"][bird_data.avibaseid[i]] = {
+        "aves": f"{bird_data.aves[i]}",
+        "en": f"{bird_data.en[i]}",
+        "zh": f"{bird_data.zh[i]}",
+        "jp": f"{bird_data.jp[i]}",
+        "link": f"{bird_data.link[i]}",
+        "rarity": f"{bird_data.rarity[i]}",
     }
-    zh_name = bird_data_zh.zh[i].split("/")
+    zh_name = bird_data.zh[i].split("/")
+    jp_name = bird_data.jp[i].split("/")
     for j in range(len(zh_name)):
-        json_content["zh_index"][zh_name[j]] = bird_data_zh.avibaseid[i]
+        json_content["zh_index"][zh_name[j]] = bird_data.avibaseid[i]
+    for n in range(len(jp_name)):
+        json_content["jp_index"][jp_name[n]] = bird_data.avibaseid[i]
 
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(json_content, f, indent=2, ensure_ascii=False)
+
+print("🟢Json Generated!")
