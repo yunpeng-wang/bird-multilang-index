@@ -54,7 +54,7 @@ main {
   background-color: var(--theme-color);
   border: 1px solid var(--border-color);
   width: 100%;
-  max-height: 300px;
+  max-height: 240px;
   overflow-y: auto;
   box-shadow: 0 4px 10px #0004;
 
