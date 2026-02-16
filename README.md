@@ -1,4 +1,4 @@
-# Birds Name Multi-language Search
+# Bird Name Multi-language Search
 
 Whenever people asked me about the names of birds during birdwatching, it always took me a few minutes to find the English or Japanese names online.
 

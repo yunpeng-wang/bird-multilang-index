@@ -70,6 +70,7 @@ function showResult(entry) {
     spanRarity.textContent = entry.rarity;
   }
   aLink.href = entry.link;
+  aLink.classList.remove("hidden");
 }
 
 const main = document.querySelector("main");
@@ -88,10 +89,12 @@ const aLink = results.querySelector("a");
 langSwitch.addEventListener("click", () => {
   if (main.dataset.searchlang === "zh") {
     main.dataset.searchlang = "jp";
-    input.placeholder = "输入日语鸟名";
+    input.placeholder = "输入日文鸟名";
+    langSwitch.value = "日";
   } else if (main.dataset.searchlang === "jp") {
     main.dataset.searchlang = "zh";
     input.placeholder = "输入中文鸟名";
+    langSwitch.value = "中";
   }
 });
 
