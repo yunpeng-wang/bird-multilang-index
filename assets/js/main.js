@@ -40,7 +40,7 @@ function showResult(entry) {
   spanEn.textContent = entry.en;
   spanJp.textContent = entry.jp;
   if (entry.rarity == "") {
-    spanRarity.textContent = "NA";
+    spanRarity.textContent = "普通";
   } else {
     spanRarity.textContent = entry.rarity;
   }
