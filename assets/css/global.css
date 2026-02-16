@@ -3,6 +3,7 @@
   --primary-color: rgb(30, 30, 31);
   --secondary-color: rgb(96, 96, 98);
   --header-footer-height: 60px;
+  --border-color: #ddd;
 }
 
 body {
@@ -38,14 +39,14 @@ footer {
 }
 
 a {
-    text-decoration: underline;
-    color: blue;
+  text-decoration: underline;
+  color: blue;
 }
 
 input {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: white;
-    padding: 2px 4px;
-    font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  padding: 2px 4px;
+  font-size: 16px;
 }
