@@ -78,8 +78,12 @@ function showResult(entry) {
     photoCredit.classList.add("hidden");
   } else {
     birdPhoto.src = entry.img;
-    birdPhoto.alt = entry.en;
-    photoCredit.classList.remove("hidden");
+    birdPhoto.classList.add("loading");
+    birdPhoto.onload = () => {
+      birdPhoto.alt = entry.en;
+      photoCredit.classList.remove("hidden");
+      birdPhoto.classList.remove("loading");
+    };
   }
 }
 
