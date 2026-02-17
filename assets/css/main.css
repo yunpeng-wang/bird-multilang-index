@@ -78,10 +78,11 @@ main {
       font-weight: normal;
     }
   }
-  & div a {
+  &>a {
+    display: block;
     font-weight: normal;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
   }
   & hr {
     margin-bottom: 20px;
@@ -101,6 +102,7 @@ main {
     & a {
       font-size: 10px;
       opacity: 0.8;
+      text-decoration: none;
     }
   }
 }
