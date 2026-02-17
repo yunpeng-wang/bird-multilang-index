@@ -11,7 +11,6 @@ from bs4 import BeautifulSoup as BS
 from bs4 import Tag
 import json
 import os
-import get_image_url
 from common import DATABASE_DIR, JSON_CN_PATH, AVIBASE_LINK
 
 
@@ -40,7 +39,7 @@ def parse_html(html, lang):
                     bird_data.link.append(AVIBASE_LINK + data_href)
                     bird_data.avibaseid.append(data_href.split("=")[-1])
                     bird_data.zh.append(data_td[2].text)
-                    bird_data.rarity.append(data_td[3].text)
+                    bird_data.rarity.append("CN: "+data_td[3].text)
                 elif lang == "jp":
                     bird_data.aves.append(data_td[1].text)
                     bird_data.jp.append(data_td[2].text)
@@ -88,7 +87,6 @@ json_content["zh_index"] = {}
 json_content["jp_index"] = {}
 
 for i in range(len(bird_data.zh)):
-    print(f"Processing: {i}/{len(bird_data.zh)}")
     # skip if zh empty
     if bird_data.zh[i] == "":
         continue
@@ -101,7 +99,7 @@ for i in range(len(bird_data.zh)):
         "jp": f"{bird_data.jp[i]}",
         "link": f"{bird_data.link[i]}",
         "rarity": f"{bird_data.rarity[i]}",
-        #"img": f"{get_image_url.main_step(bird_data.aves[i])}",
+        "img": "",
     }
 
     zh_name = bird_data.zh[i].split("/")

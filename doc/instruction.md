@@ -1,16 +1,7 @@
 # Steps
 
-## 1. JP (Required)
-
-1. <export_birds_data> --> Generate JSON data (including images) for birds found in Japan.
-2. <refeed_image_url> --> Fetch the missing images.
-
-## 2. CN (Optional)
-
-1. <CN_export_birds_data> --> Generate JSON data (excluding images) for birds found in China.
-2. <CN_add_data> --> Discard bird data shared between Japan and China and fetch images.
-3. <refeed_image_url> --> Fetch the missing images (modify JSON path).
-
-## 3. Post-process
-
-1. merge two JSONs.
+1. <export_birds_data.py> --> Generate JSON data (including images) for birds found in Japan.
+2. <CN_export_birds_data.py> --> Generate JSON data (excluding images) for birds found in China.
+3. <merge_json.py> --> merge two JSONs.
+4. <get_image_url.py> --> Get images url from wikimedia via API.
+5. <refeed_image_url> --> Fetch the missing images.

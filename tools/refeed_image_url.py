@@ -2,10 +2,8 @@
 re-get image url from category page in case api doesn't work
 """
 import json
-import os
 import get_image_url
 from common import JSON_PATH
-import get_image_url
 
 with open(JSON_PATH, "r", encoding="utf-8") as f:
     data = json.load(f)
