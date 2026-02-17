@@ -96,8 +96,12 @@ main {
     align-items: center;
     flex-direction: column;
     gap: 4px;
+
     & img {
       width: 100%;
+      &.loading {
+        animation: flickering 0.5s ease infinite alternate;
+      }
     }
     & span,
     & a {
@@ -105,6 +109,15 @@ main {
       opacity: 0.8;
       text-decoration: none;
     }
+  }
+}
+
+@keyframes flickering {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0.3;
   }
 }
 
