@@ -39,7 +39,10 @@ def parse_html(html, lang):
                     bird_data.link.append(AVIBASE_LINK + data_href)
                     bird_data.avibaseid.append(data_href.split("=")[-1])
                     bird_data.zh.append(data_td[2].text)
-                    bird_data.rarity.append("CN: "+data_td[3].text)
+                    if data_td[3].text == "":
+                        bird_data.rarity.append("CN:普通")
+                    else:
+                        bird_data.rarity.append("CN:" + data_td[3].text)
                 elif lang == "jp":
                     bird_data.aves.append(data_td[1].text)
                     bird_data.jp.append(data_td[2].text)
