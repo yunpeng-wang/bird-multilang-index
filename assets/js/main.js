@@ -71,6 +71,16 @@ function showResult(entry) {
   }
   aLink.href = entry.link;
   aLink.classList.remove("hidden");
+
+  if (entry.img == "") {
+    birdPhoto.src = "./assets/resources/egg.svg";
+    birdPhoto.alt = "Bird Name Index";
+    photoCredit.classList.add("hidden");
+  } else {
+    birdPhoto.src = entry.img;
+    birdPhoto.alt = entry.en;
+    photoCredit.classList.remove("hidden");
+  }
 }
 
 const main = document.querySelector("main");
@@ -85,6 +95,8 @@ const spanEn = results.querySelector(".en");
 const spanJp = results.querySelector(".jp");
 const spanRarity = results.querySelector(".rarity");
 const aLink = results.querySelector("a");
+const birdPhoto = results.querySelector(".bird-photo img");
+const photoCredit = results.querySelector(".bird-photo span");
 
 langSwitch.addEventListener("click", () => {
   if (main.dataset.searchlang === "zh") {

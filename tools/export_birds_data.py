@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup as BS
 from bs4 import Tag
 import json
 import os
+import get_image_url
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.join(SCRIPT_DIR, "..")
@@ -33,13 +34,15 @@ def parse_html(html, lang):
             if isinstance(data_tr_row, Tag):
                 data_td = data_tr_row.find_all("td")
                 if lang == "zh":
-                    data_href = data_td[1].find("a").get("href")
-                    bird_data.en.append(data_td[0].text)
-                    bird_data.aves.append(data_td[1].text)
-                    bird_data.link.append(avibase_link + data_href)
-                    bird_data.avibaseid.append(data_href.split("=")[-1])
-                    bird_data.zh.append(data_td[2].text)
-                    bird_data.rarity.append(data_td[3].text)
+                    # skip if no zh name or invalid entry
+                    if data_td[2].text != "" and data_td[2].text.find("未识别") == -1:
+                        data_href = data_td[1].find("a").get("href")
+                        bird_data.en.append(data_td[0].text)
+                        bird_data.aves.append(data_td[1].text)
+                        bird_data.link.append(avibase_link + data_href)
+                        bird_data.avibaseid.append(data_href.split("=")[-1])
+                        bird_data.zh.append(data_td[2].text)
+                        bird_data.rarity.append(data_td[3].text)
                 elif lang == "jp":
                     bird_data.aves.append(data_td[1].text)
                     bird_data.jp.append(data_td[2].text)
@@ -68,18 +71,13 @@ jp_html = os.path.join(databse_dir, "jp.html")
 bird_data = parse_html(open(zh_html, "r", encoding="utf-8"), "zh")
 bird_data_jp = parse_html(open(jp_html, "r", encoding="utf-8"), "jp")
 
-good_for_concat = True
-if len(bird_data.aves) == len(bird_data_jp.aves):
-    for i in range(len(bird_data.aves)):
-        if bird_data.aves[i] != bird_data_jp.aves[i]:
-            good_for_concat = False
-            break
+# merge list
+for i in range(len(bird_data.aves)):
+    for j in range(len(bird_data_jp.aves)):
+        if bird_data.aves[i] == bird_data_jp.aves[j]:
+            bird_data.jp.append(bird_data_jp.jp[j])
 
-if good_for_concat:
-    bird_data.jp = bird_data_jp.jp
-    print("🟢Two data merged!")
-else:
-    print("🔴Two data are not eligible to be concatenated!")
+print("🟢Bird data merged!")
 
 json_content = {}
 json_content["species"] = {}
@@ -87,20 +85,25 @@ json_content["zh_index"] = {}
 json_content["jp_index"] = {}
 
 for i in range(len(bird_data.zh)):
-    json_content["species"][bird_data.avibaseid[i]] = {
+    print(f"Processing: {i}/{len(bird_data.zh)}")
+    avibase_id = bird_data.avibaseid[i]
+
+    json_content["species"][avibase_id] = {
         "aves": f"{bird_data.aves[i]}",
         "en": f"{bird_data.en[i]}",
         "zh": f"{bird_data.zh[i]}",
         "jp": f"{bird_data.jp[i]}",
         "link": f"{bird_data.link[i]}",
         "rarity": f"{bird_data.rarity[i]}",
+        "img": f"{get_image_url.main_step(bird_data.aves[i])}",
     }
+
     zh_name = bird_data.zh[i].split("/")
     jp_name = bird_data.jp[i].split("/")
     for j in range(len(zh_name)):
-        json_content["zh_index"][zh_name[j]] = bird_data.avibaseid[i]
+        json_content["zh_index"][zh_name[j]] = avibase_id
     for n in range(len(jp_name)):
-        json_content["jp_index"][jp_name[n]] = bird_data.avibaseid[i]
+        json_content["jp_index"][jp_name[n]] = avibase_id
 
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(json_content, f, indent=2, ensure_ascii=False)
