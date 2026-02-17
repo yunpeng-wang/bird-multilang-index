@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup as BS
 from bs4 import Tag
 import requests
 import time
+import json
+from common import JSON_PATH
 
 HEADERS = {
     "User-Agent": "BirdNameIndexBot/1.0 (https://yunpeng-wang.github.io/bird-multilang-index/)"
@@ -87,4 +89,19 @@ def main_step(aves):
 
 
 if __name__ == "__main__":
-    print(main_step("Remiz consobrinus"))
+    with open(JSON_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    keys = list(data["species"].keys())
+
+    counter = 0
+    for key in keys:
+        single_dict = data["species"][key]
+        if single_dict["img"] == "":
+            counter += 1
+            print(f"Processing {counter}-th data")
+            aves = single_dict["aves"]
+            single_dict["img"] = main_step(aves)
+
+    with open(JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)

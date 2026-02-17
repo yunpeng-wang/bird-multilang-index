@@ -1,6 +1,4 @@
 import json
-import os
-import get_image_url
 from common import JSON_PATH, JSON_CN_PATH
 
 
@@ -20,6 +18,7 @@ for cn in cn_keys:
     for jp in jp_keys:
         if cn == jp:
             found = False
+            jp_data["species"][jp]["rarity"] = cn_data["species"][cn]["rarity"] + jp_data["species"][jp]["rarity"]
             break
     if found:
         bird_id.append(cn)
@@ -43,7 +42,7 @@ for id in bird_id:
         "jp": f"{cn_species[id]["jp"]}",
         "link": f"{cn_species[id]["link"]}",
         "rarity": f"{cn_species[id]["rarity"]}",
-        "img": f"{get_image_url.main_step(cn_species[id]["aves"])}",
+        "img": "",
     }
 
     zh_name = cn_species[id]["zh"].split("/")
@@ -53,7 +52,11 @@ for id in bird_id:
     for j in range(len(jp_name)):
         json_content["jp_index"][jp_name[j]] = id
 
-with open(JSON_CN_PATH, "w", encoding="utf-8") as f:
-    json.dump(json_content, f, indent=2, ensure_ascii=False)
+jp_data["species"].update(json_content["species"])
+jp_data["zh_index"].update(json_content["zh_index"])
+jp_data["jp_index"].update(json_content["jp_index"])
 
-print("🟢Json Generated!")
+with open(JSON_PATH, "w", encoding="utf-8") as f:
+    json.dump(jp_data, f, indent=2, ensure_ascii=False)
+
+print("🟢Json merged!")
