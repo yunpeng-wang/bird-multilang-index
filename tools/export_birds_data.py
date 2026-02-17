@@ -4,7 +4,7 @@ Docstring for bird-multilang-index.tools.export_birds_data
 Load raw html in database, parse birds data, and export to json.
 
 avibase source link:
-https://avibase.bsc-eoc.org/checklist.jsp?lang=ZH&region=jp&list=avibase&format=1
+https://avibase.bsc-eoc.org/checklist.jsp?region=index&lang=ZH&list=ioc
 """
 
 from bs4 import BeautifulSoup as BS
