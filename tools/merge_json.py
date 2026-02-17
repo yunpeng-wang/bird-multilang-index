@@ -1,8 +1,8 @@
 import json
-from common import JSON_PATH, JSON_CN_PATH
+from common import JSON_PATH, JSON_CN_PATH, JSON_JP_PATH
 
 
-with open(JSON_PATH, "r", encoding="utf-8") as f:
+with open(JSON_JP_PATH, "r", encoding="utf-8") as f:
     jp_data = json.load(f)
 
 with open(JSON_CN_PATH, "r", encoding="utf-8") as f:
@@ -18,7 +18,11 @@ for cn in cn_keys:
     for jp in jp_keys:
         if cn == jp:
             found = False
-            jp_data["species"][jp]["rarity"] = cn_data["species"][cn]["rarity"] + jp_data["species"][jp]["rarity"]
+            jp_data["species"][jp]["rarity"] = (
+                cn_data["species"][cn]["rarity"]
+                + " "
+                + jp_data["species"][jp]["rarity"]
+            )
             break
     if found:
         bird_id.append(cn)
@@ -30,11 +34,7 @@ json_content["zh_index"] = {}
 json_content["jp_index"] = {}
 
 cn_species = cn_data["species"]
-counter = 0
 for id in bird_id:
-    counter += 1
-    print(f"Processing: {counter}/{len(bird_id)}")
-
     json_content["species"][id] = {
         "aves": f"{cn_species[id]["aves"]}",
         "en": f"{cn_species[id]["en"]}",
