@@ -2,6 +2,7 @@
   --theme-color: rgb(240, 240, 240);
   --primary-color: rgb(30, 30, 31);
   --secondary-color: rgb(96, 96, 98);
+  --link-color: #007bff;
   --header-footer-height: 60px;
   --border-color: #ddd;
 }
@@ -40,7 +41,7 @@ footer {
 
 a {
   text-decoration: underline;
-  color: blue;
+  color: var(--link-color);
 }
 
 input {
@@ -49,4 +50,9 @@ input {
   background-color: white;
   padding: 2px 4px;
   font-size: 16px;
+}
+
+.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
