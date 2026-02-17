@@ -12,12 +12,12 @@ from bs4 import Tag
 import json
 import os
 import get_image_url
+from common import DATABASE_DIR, JSON_PATH, AVIBASE_LINK
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.join(SCRIPT_DIR, "..")
-avibase_link = "https://avibase.bsc-eoc.org/"
-json_path = os.path.join(ROOT_DIR, "data", "birds-data.json")
-databse_dir = os.path.join(ROOT_DIR, "avibase")
+
+classification_system = "IOC 15.1"
+zh_html = os.path.join(DATABASE_DIR, "IOC15.1_Japan_zh.html")
+jp_html = os.path.join(DATABASE_DIR, "IOC15.1_Japan_jp.html")
 
 
 def parse_html(html, lang):
@@ -34,15 +34,13 @@ def parse_html(html, lang):
             if isinstance(data_tr_row, Tag):
                 data_td = data_tr_row.find_all("td")
                 if lang == "zh":
-                    # skip if no zh name or invalid entry
-                    if data_td[2].text != "" and data_td[2].text.find("未识别") == -1:
-                        data_href = data_td[1].find("a").get("href")
-                        bird_data.en.append(data_td[0].text)
-                        bird_data.aves.append(data_td[1].text)
-                        bird_data.link.append(avibase_link + data_href)
-                        bird_data.avibaseid.append(data_href.split("=")[-1])
-                        bird_data.zh.append(data_td[2].text)
-                        bird_data.rarity.append(data_td[3].text)
+                    data_href = data_td[1].find("a").get("href")
+                    bird_data.en.append(data_td[0].text)
+                    bird_data.aves.append(data_td[1].text)
+                    bird_data.link.append(AVIBASE_LINK + data_href)
+                    bird_data.avibaseid.append(data_href.split("=")[-1])
+                    bird_data.zh.append(data_td[2].text)
+                    bird_data.rarity.append(data_td[3].text)
                 elif lang == "jp":
                     bird_data.aves.append(data_td[1].text)
                     bird_data.jp.append(data_td[2].text)
@@ -65,29 +63,37 @@ class BirdData:
         self.rarity = []
 
 
-zh_html = os.path.join(databse_dir, "zh.html")
-jp_html = os.path.join(databse_dir, "jp.html")
-
 bird_data = parse_html(open(zh_html, "r", encoding="utf-8"), "zh")
 bird_data_jp = parse_html(open(jp_html, "r", encoding="utf-8"), "jp")
 
 # merge list
-for i in range(len(bird_data.aves)):
-    for j in range(len(bird_data_jp.aves)):
-        if bird_data.aves[i] == bird_data_jp.aves[j]:
-            bird_data.jp.append(bird_data_jp.jp[j])
+good_for_concat = True
+if len(bird_data.aves) == len(bird_data_jp.aves):
+    for i in range(len(bird_data.aves)):
+        if bird_data.aves[i] != bird_data_jp.aves[i]:
+            good_for_concat = False
+            break
 
-print("🟢Bird data merged!")
+if good_for_concat:
+    bird_data.jp = bird_data_jp.jp
+    print("🟢Two data merged!")
+else:
+    print("🔴Two data are not eligible to be concatenated! Exit...")
+    exit()
 
 json_content = {}
+json_content["classification"] = classification_system
 json_content["species"] = {}
 json_content["zh_index"] = {}
 json_content["jp_index"] = {}
 
 for i in range(len(bird_data.zh)):
     print(f"Processing: {i}/{len(bird_data.zh)}")
-    avibase_id = bird_data.avibaseid[i]
+    # skip if zh empty
+    if bird_data.zh[i] == "":
+        continue
 
+    avibase_id = bird_data.avibaseid[i]
     json_content["species"][avibase_id] = {
         "aves": f"{bird_data.aves[i]}",
         "en": f"{bird_data.en[i]}",
@@ -105,7 +111,7 @@ for i in range(len(bird_data.zh)):
     for n in range(len(jp_name)):
         json_content["jp_index"][jp_name[n]] = avibase_id
 
-with open(json_path, "w", encoding="utf-8") as f:
+with open(JSON_PATH, "w", encoding="utf-8") as f:
     json.dump(json_content, f, indent=2, ensure_ascii=False)
 
 print("🟢Json Generated!")
