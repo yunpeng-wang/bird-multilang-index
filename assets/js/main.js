@@ -134,6 +134,9 @@ input.addEventListener("input", (e) => {
     dropdownMenu.classList.remove("hidden");
     render(list);
   }
+  else {
+    dropdownMenu.classList.add("hidden");
+  }
 });
 
 reset.addEventListener("click", () => {
