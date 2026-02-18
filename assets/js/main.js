@@ -16,7 +16,10 @@ function searchZhNames(input) {
   const results = [];
 
   for (let i = 0; i < zhNames.length; i++) {
-    if (zhNames[i].includes(input)) {
+    if (
+      zhNames[i].includes(input) ||
+      data.zh_index[zhNames[i]]["pinyin_initials"].includes(input)
+    ) {
       results.push(zhNames[i]);
 
       if (results.length >= 20) {
@@ -133,8 +136,7 @@ input.addEventListener("input", (e) => {
   if (list.length > 0) {
     dropdownMenu.classList.remove("hidden");
     render(list);
-  }
-  else {
+  } else {
     dropdownMenu.classList.add("hidden");
   }
 });
@@ -148,7 +150,7 @@ dropdownMenu.addEventListener("click", (e) => {
 
   let id;
   if (main.dataset.searchlang === "zh") {
-    id = data.zh_index[e.target.textContent];
+    id = data.zh_index[e.target.textContent]["id"];
   } else if (main.dataset.searchlang === "jp") {
     id = data.jp_index[e.target.textContent];
   }
