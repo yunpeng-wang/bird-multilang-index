@@ -175,6 +175,7 @@ input.addEventListener("keypress", (e) => {
 
 reset.addEventListener("click", () => {
   dropdownMenu.classList.add("hidden");
+  input.value = "";
 });
 
 dropdownMenu.addEventListener("click", (e) => {
