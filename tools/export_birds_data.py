@@ -103,6 +103,7 @@ for i in range(len(bird_data.zh)):
         "link": f"{bird_data.link[i]}",
         "rarity": f"{bird_data.rarity[i]}",
         "img": "",
+        "img2": "",
     }
 
     zh_name = bird_data.zh[i].split("/")

@@ -101,11 +101,11 @@ if __name__ == "__main__":
     counter = 0
     for key in keys:
         single_dict = data["species"][key]
-        if single_dict["img"] == "":
+        if single_dict["img2"] == "":
             counter += 1
             print(f"Processing {counter}-th data")
             aves = single_dict["aves"]
-            single_dict["img"] = main_step(aves)
+            single_dict["img2"] = main_step(aves)
 
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

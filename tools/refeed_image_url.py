@@ -15,7 +15,6 @@ for key in keys:
     counter += 1
     print(f"Processing {counter}-th data")
 
-    data["species"][key]["img2"] = ""
     single_dict = data["species"][key]
     if single_dict["img"] == "":
         aves = single_dict["aves"]
