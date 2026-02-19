@@ -53,7 +53,7 @@ function toKatakana(str) {
   });
 }
 
-function render(list) {
+function renderMenu(list) {
   dropdownMenu.innerHTML = list
     .map(
       (item) => `
@@ -63,7 +63,24 @@ function render(list) {
     .join("");
 }
 
-function showResult(entry) {
+function renderResult(name) {
+  let id;
+  if (main.dataset.searchlang === "zh") {
+    id = data.zh_index[name]["id"];
+  } else if (main.dataset.searchlang === "jp") {
+    id = data.jp_index[name];
+  }
+
+  if (id != null) {
+    const speciesInfo = data.species[id];
+
+    dropdownMenu.classList.add("hidden");
+    input.value = name;
+    updateDom(speciesInfo);
+  }
+}
+
+function updateDom(entry) {
   spanZh.textContent = entry.zh;
   spanEn.textContent = entry.en;
   spanJp.textContent = entry.jp;
@@ -143,11 +160,19 @@ input.addEventListener("input", (e) => {
   }
   if (list.length > 0) {
     dropdownMenu.classList.remove("hidden");
-    render(list);
+    renderMenu(list);
   } else {
     dropdownMenu.classList.add("hidden");
   }
 });
+
+input.addEventListener("keypress", (e) => {
+  const searchQuery = dropdownMenu.querySelectorAll("span");
+  if (e.key==="Enter" && searchQuery.length===1) {
+    e.preventDefault();
+    renderResult(searchQuery[0].textContent);
+  }
+})
 
 reset.addEventListener("click", () => {
   dropdownMenu.classList.add("hidden");
@@ -156,18 +181,5 @@ reset.addEventListener("click", () => {
 dropdownMenu.addEventListener("click", (e) => {
   if (e.target.tagName !== "SPAN") return;
 
-  let id;
-  if (main.dataset.searchlang === "zh") {
-    id = data.zh_index[e.target.textContent]["id"];
-  } else if (main.dataset.searchlang === "jp") {
-    id = data.jp_index[e.target.textContent];
-  }
-
-  if (id != null) {
-    const speciesInfo = data.species[id];
-
-    dropdownMenu.classList.add("hidden");
-    input.value = e.target.textContent;
-    showResult(speciesInfo);
-  }
+  renderResult(e.target.textContent);
 });
