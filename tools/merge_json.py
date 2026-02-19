@@ -43,6 +43,7 @@ for id in bird_id:
         "link": f"{cn_species[id]["link"]}",
         "rarity": f"{cn_species[id]["rarity"]}",
         "img": "",
+        "img2": "",
     }
 
     zh_name = cn_species[id]["zh"].split("/")
