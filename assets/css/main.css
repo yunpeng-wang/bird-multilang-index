@@ -19,7 +19,7 @@ main {
   margin: 0 auto;
   padding: 20px;
 
-  & form {
+  & .control-panel {
     position: relative;
   }
 }
@@ -129,7 +129,7 @@ footer a {
   main {
     align-items: normal;
 
-    & form {
+    & .control-panel {
       margin: 0 auto;
     }
   }

@@ -169,7 +169,6 @@ input.addEventListener("input", (e) => {
 input.addEventListener("keypress", (e) => {
   const searchQuery = dropdownMenu.querySelectorAll("span");
   if (e.key==="Enter" && searchQuery.length===1) {
-    e.preventDefault();
     renderResult(searchQuery[0].textContent);
   }
 })
