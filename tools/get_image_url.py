@@ -21,21 +21,25 @@ def preprocess_name(name):
 
 def get_image_from_category(scientific_name):
     url = "https://commons.wikimedia.org/wiki/Category:"
-    time.sleep(1.0)  # delay
+    time.sleep(0.5)  # delay
     img_link = ""
 
     name_arr = preprocess_name(scientific_name)
     concat_name = "_".join(name_arr)
-    response = requests.get(url + concat_name, headers=HEADERS)
-    if response.status_code == 200:
-        soup = BS(response.text, "html.parser")
-        container = soup.find(id="wdinfobox")
-        if isinstance(container, Tag):
-            img = container.find("img", class_="mw-file-element")
-            if isinstance(img, Tag):
-                img_link = img.get("src")
-    else:
-        print(f"Failed! Code:{response.status_code}")
+    try:
+        response = requests.get(url + concat_name, headers=HEADERS, timeout=10)
+        if response.status_code == 200:
+            soup = BS(response.text, "html.parser")
+            container = soup.find(id="wdinfobox")
+            if isinstance(container, Tag):
+                img = container.find("img", class_="mw-file-element")
+                if isinstance(img, Tag):
+                    img_link = img.get("src")
+        else:
+            print(f"Failed! Code:{response.status_code}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error for {scientific_name}: {e}")
 
     if img_link == "":
         print(f"Error for {scientific_name}")

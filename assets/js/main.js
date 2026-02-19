@@ -75,19 +75,27 @@ function showResult(entry) {
   aLink.href = entry.link;
   aLink.classList.remove("hidden");
 
-  if (entry.img == "") {
-    birdPhoto.src = "./assets/resources/egg.svg";
-    birdPhoto.alt = "Bird Name Index";
-    photoCredit.classList.add("hidden");
+  let imgSrc = "./assets/resources/egg.svg";
+  let imgAlt = "Bird Name Index";
+  
+  if (entry.img != "") {
+    imgSrc = entry.img;
+    imgAlt = entry.en;
+    photoCredit.classList.remove("hidden");
+  } else if ("img2" in entry && entry.img2 != "") {
+    imgSrc = entry.img2;
+    imgAlt = entry.en;
+    photoCredit.classList.remove("hidden");
   } else {
-    birdPhoto.src = entry.img;
-    birdPhoto.classList.add("loading");
-    birdPhoto.onload = () => {
-      birdPhoto.alt = entry.en;
-      photoCredit.classList.remove("hidden");
-      birdPhoto.classList.remove("loading");
-    };
+    photoCredit.classList.add("hidden");
   }
+
+  birdPhoto.src = imgSrc;
+  birdPhoto.classList.add("loading");
+  birdPhoto.onload = () => {
+    birdPhoto.alt = imgAlt;
+    birdPhoto.classList.remove("loading");
+  };
 }
 
 const main = document.querySelector("main");
