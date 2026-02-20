@@ -78,15 +78,8 @@ main {
       font-weight: normal;
     }
   }
-  & > a {
-    display: block;
-    font-weight: normal;
-    text-decoration: none;
-    font-size: 12px;
-    width: fit-content;
-  }
   & hr {
-    margin-bottom: 20px;
+    margin: 15px 0;
   }
 
   & .bird-photo {
@@ -103,12 +96,6 @@ main {
         animation: flickering 0.5s ease infinite alternate;
       }
     }
-    & span,
-    & a {
-      font-size: 10px;
-      opacity: 0.8;
-      text-decoration: none;
-    }
   }
 }
 
@@ -121,8 +108,12 @@ main {
   }
 }
 
-footer a {
-  color: inherit;
+footer {
+  display: flex;
+  flex-direction: column;
+  a {
+    color: inherit;
+  }
 }
 
 @media (max-width: 480px) {

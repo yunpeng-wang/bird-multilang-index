@@ -89,8 +89,6 @@ function updateDom(entry) {
   } else {
     spanRarity.textContent = entry.rarity;
   }
-  aLink.href = entry.link;
-  aLink.classList.remove("hidden");
 
   let imgSrc = "./assets/resources/egg.svg";
   let imgAlt = "Bird Name Index";
@@ -98,13 +96,9 @@ function updateDom(entry) {
   if (entry.img != "") {
     imgSrc = entry.img;
     imgAlt = entry.en;
-    photoCredit.classList.remove("hidden");
   } else if ("img2" in entry && entry.img2 != "") {
     imgSrc = entry.img2;
     imgAlt = entry.en;
-    photoCredit.classList.remove("hidden");
-  } else {
-    photoCredit.classList.add("hidden");
   }
 
   birdPhoto.src = imgSrc;
@@ -126,9 +120,7 @@ const spanZh = results.querySelector(".zh");
 const spanEn = results.querySelector(".en");
 const spanJp = results.querySelector(".jp");
 const spanRarity = results.querySelector(".rarity");
-const aLink = results.querySelector("a");
 const birdPhoto = results.querySelector(".bird-photo img");
-const photoCredit = results.querySelector(".bird-photo span");
 
 langSwitch.addEventListener("click", () => {
   if (main.dataset.searchlang === "zh") {
