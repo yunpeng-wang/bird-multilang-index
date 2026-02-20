@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>About</title>
+    <noscript>
+      <div style="padding: 1em; color: gray; text-align: center">
+        JavaScript is disabled. JavaScript已被禁用。
+      </div>
+    </noscript>
+    <style>
+      body {
+        font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        max-width: 800px;
+        margin: 2em auto;
+        padding: 1em;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fafafa;
+      }
+      h1 {
+        font-size: 2em;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.3em;
+        margin-top: 1em;
+      }
+      h2 {
+        font-size: 1.4em;
+        margin-top: 1.2em;
+        border-left: 4px solid #0077cc;
+        padding-left: 0.5em;
+        background: #eef6fc;
+      }
+      h3 {
+        font-size: 1.2em;
+        color: #444;
+        margin-top: 1em;
+      }
+      ul,
+      ol {
+        padding-left: 1.5em;
+      }
+      a {
+        color: #0077cc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="copyright-notice">Bird Name Multi-language Search</h1>
+    <p>
+      Whenever people asked me about the names of birds during birdwatching, it
+      always took me a few minutes to find the English or Japanese names online.
+    </p>
+    <p>
+      This site offers a fuzzy search for Chinese/Japanese bird names, which
+      then extracts their English and Japanese names, along with other relevant
+      information.
+    </p>
+    <p>
+      Credits to <a href="https://avibase.bsc-eoc.org/">Avibase</a> and
+      <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>.
+    </p>
+    <h1 id="_1">多语言鸟名查询系统</h1>
+    <p>
+      我经常因为只知道中文名，记不住日文名和英文名，而且在线搜索有时太慢，所以无法回答别人问起的鸟种名。于是这个系统就诞生了。
+    </p>
+    <p>模糊查询中文/日文鸟名，输出英文，日文，以及更多有用信息。</p>
+    <p>快，是它存在的唯一目的。</p>
+    <p>
+      感谢 <a href="https://avibase.bsc-eoc.org/">Avibase</a> 和
+      <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> 的数据。
+    </p>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let counter = 1;
+        document.querySelectorAll("h2").forEach((h2) => {
+          h2.innerHTML = `${counter}. ${h2.innerHTML}`;
+          counter++;
+        });
+      });
+    </script>
+  </body>
+</html>
