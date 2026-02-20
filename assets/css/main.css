@@ -18,6 +18,7 @@ main {
   align-items: center;
   margin: 0 auto;
   padding: 20px;
+  overflow: hidden;
 
   & .control-panel {
     position: relative;
