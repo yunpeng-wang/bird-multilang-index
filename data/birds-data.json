@@ -16119,7 +16119,7 @@
     },
     "长尾鸭": {
       "id": "AF0C7BDEC7CEBAAC",
-      "pinyin_initials": "zwy"
+      "pinyin_initials": "cwy"
     },
     "白枕鹊鸭": {
       "id": "FB7383856D0DB2EA",
@@ -16155,7 +16155,7 @@
     },
     "铜长尾雉": {
       "id": "0C641DC55521E668",
-      "pinyin_initials": "tzwz"
+      "pinyin_initials": "tcwz"
     },
     "雉鸡": {
       "id": "2FA39DCD42F80BC9",
@@ -16227,7 +16227,7 @@
     },
     "长尾噪鹃": {
       "id": "3BD58F083A982F9D",
-      "pinyin_initials": "zwzj"
+      "pinyin_initials": "cwzj"
     },
     "八声杜鹃": {
       "id": "54089C784D4DFF4A",
@@ -16319,7 +16319,7 @@
     },
     "长脚秧鸡": {
       "id": "7E2572426E200D08",
-      "pinyin_initials": "zjyj"
+      "pinyin_initials": "cjyj"
     },
     "蓝胸秧鸡": {
       "id": "139D32219E23DB69",
@@ -16439,11 +16439,11 @@
     },
     "黑翅长脚鹬": {
       "id": "3CAEB7CEEC7FFF50",
-      "pinyin_initials": "hczjy"
+      "pinyin_initials": "hccjy"
     },
     "澳洲长脚鹬": {
       "id": "C2830C86727884E3",
-      "pinyin_initials": "azzjy"
+      "pinyin_initials": "azcjy"
     },
     "反嘴鹬": {
       "id": "C73ED2F5D88625BA",
@@ -16483,7 +16483,7 @@
     },
     "长嘴剑鸻": {
       "id": "8294655EB86B37C1",
-      "pinyin_initials": "zzjh"
+      "pinyin_initials": "czjh"
     },
     "凤头麦鸡": {
       "id": "F029489ABD9D1334",
@@ -16499,7 +16499,7 @@
     },
     "青藏沙鸻": {
       "id": "828D3D5A6AFE2F26",
-      "pinyin_initials": "qcsh"
+      "pinyin_initials": "qzsh"
     },
     "蒙古沙鸻": {
       "id": "66DA1FB3162F3239",
@@ -16563,7 +16563,7 @@
     },
     "长嘴鹬": {
       "id": "CB343E43E8CAF303",
-      "pinyin_initials": "zzy"
+      "pinyin_initials": "czy"
     },
     "短嘴半蹼鹬": {
       "id": "4A3B2CFF53868550",
@@ -16707,7 +16707,7 @@
     },
     "长趾滨鹬": {
       "id": "7D629288C753814E",
-      "pinyin_initials": "zzby"
+      "pinyin_initials": "czby"
     },
     "红颈滨鹬": {
       "id": "BBDF2F1BAC640E4D",
@@ -16971,7 +16971,7 @@
     },
     "长尾贼鸥": {
       "id": "1D4464402EC9FD21",
-      "pinyin_initials": "zwzo"
+      "pinyin_initials": "cwzo"
     },
     "短尾贼鸥": {
       "id": "39086887E9EAFEB3",
@@ -17163,7 +17163,7 @@
     },
     "长嘴圆尾鹱": {
       "id": "0F0F66EFDAE44DAB",
-      "pinyin_initials": "zzywh"
+      "pinyin_initials": "czywh"
     },
     "钩嘴圆尾鹱": {
       "id": "FCFBB7D9A628EF5D",
@@ -17543,7 +17543,7 @@
     },
     "长耳鸮": {
       "id": "FC4D40D2D5CEA6BE",
-      "pinyin_initials": "zex"
+      "pinyin_initials": "cex"
     },
     "短耳鸮": {
       "id": "8F123A11E5DADFDD",
@@ -17563,7 +17563,7 @@
     },
     "长尾林鸮": {
       "id": "93486A5625828721",
-      "pinyin_initials": "zwlx"
+      "pinyin_initials": "cwlx"
     },
     "戴胜": {
       "id": "FA2F91259125A6FA",
@@ -17979,7 +17979,7 @@
     },
     "北长尾山雀": {
       "id": "547163C22167E31B",
-      "pinyin_initials": "bzwsq"
+      "pinyin_initials": "bcwsq"
     },
     "林柳莺": {
       "id": "572C4C7FD4322D14",
@@ -18715,7 +18715,7 @@
     },
     "长尾雀": {
       "id": "BBDFDDB0EB73DD89",
-      "pinyin_initials": "zwq"
+      "pinyin_initials": "cwq"
     },
     "北朱雀": {
       "id": "68DF5AB792401570",
@@ -19031,15 +19031,15 @@
     },
     "白冠长尾雉": {
       "id": "94785AFFA715F16E",
-      "pinyin_initials": "bgzwz"
+      "pinyin_initials": "bgcwz"
     },
     "白颈长尾雉": {
       "id": "117C0DDFB67149E8",
-      "pinyin_initials": "bjzwz"
+      "pinyin_initials": "bjcwz"
     },
     "黑颈长尾雉": {
       "id": "FAF7DC71F592808D",
-      "pinyin_initials": "hjzwz"
+      "pinyin_initials": "hjcwz"
     },
     "红腹锦鸡": {
       "id": "093AC1FC5140E629",
@@ -19051,7 +19051,7 @@
     },
     "藏马鸡": {
       "id": "23937719047D548D",
-      "pinyin_initials": "cmj"
+      "pinyin_initials": "zmj"
     },
     "白马鸡": {
       "id": "D39EDBF11CD8DA49",
@@ -19103,7 +19103,7 @@
     },
     "藏雪鸡": {
       "id": "509A30B1CFCCC041",
-      "pinyin_initials": "cxj"
+      "pinyin_initials": "zxj"
     },
     "阿尔泰雪鸡": {
       "id": "D9A6E25C5C83C6F9",
@@ -19143,7 +19143,7 @@
     },
     "长尾夜鹰": {
       "id": "04DDADF0515EECDA",
-      "pinyin_initials": "zwyy"
+      "pinyin_initials": "cwyy"
     },
     "黑顶蟆口鸱": {
       "id": "5CB94E3D9448C33C",
@@ -19179,7 +19179,7 @@
     },
     "青藏白腰雨燕": {
       "id": "E8B1998F8E266CB2",
-      "pinyin_initials": "qcbyyy"
+      "pinyin_initials": "qzbyyy"
     },
     "布氏白腰雨燕": {
       "id": "EB2DAF39A0325C28",
@@ -19939,7 +19939,7 @@
     },
     "长尾阔嘴鸟": {
       "id": "63944E031BC7D37B",
-      "pinyin_initials": "zwkzn"
+      "pinyin_initials": "cwkzn"
     },
     "灰眉阔嘴鸟": {
       "id": "098E40F1BFC380D4",
@@ -20011,7 +20011,7 @@
     },
     "长尾山椒鸟": {
       "id": "8F319AD8625E6550",
-      "pinyin_initials": "zwsjn"
+      "pinyin_initials": "cwsjn"
     },
     "赤红山椒鸟": {
       "id": "BE3E7AFD48C7ABBD",
@@ -20123,7 +20123,7 @@
     },
     "青藏楔尾伯劳": {
       "id": "A804EABE7BBE206F",
-      "pinyin_initials": "qcxwbl"
+      "pinyin_initials": "qzxwbl"
     },
     "黑额伯劳": {
       "id": "8852337B06E8A14E",
@@ -20191,7 +20191,7 @@
     },
     "青藏喜鹊": {
       "id": "44F225523AA66CA3",
-      "pinyin_initials": "qcxq"
+      "pinyin_initials": "qzxq"
     },
     "黑尾地鸦": {
       "id": "AF49B4CF0E5FE555",
@@ -20335,7 +20335,7 @@
     },
     "长嘴百灵": {
       "id": "9AC67428EEF90BE7",
-      "pinyin_initials": "zzbl"
+      "pinyin_initials": "czbl"
     },
     "中亚短趾百灵": {
       "id": "238EC109773091F5",
@@ -20539,23 +20539,23 @@
     },
     "银喉长尾山雀": {
       "id": "67134AC3FF1D70FE",
-      "pinyin_initials": "yhzwsq"
+      "pinyin_initials": "yhcwsq"
     },
     "红头长尾山雀": {
       "id": "94C5E135FE6A5A3A",
-      "pinyin_initials": "htzwsq"
+      "pinyin_initials": "htcwsq"
     },
     "棕额长尾山雀": {
       "id": "D456F669360E78BF",
-      "pinyin_initials": "zezwsq"
+      "pinyin_initials": "zecwsq"
     },
     "黑眉长尾山雀": {
       "id": "3B5E16167E6411DC",
-      "pinyin_initials": "hmzwsq"
+      "pinyin_initials": "hmcwsq"
     },
     "银脸长尾山雀": {
       "id": "2DAF0C854A3CE366",
-      "pinyin_initials": "ylzwsq"
+      "pinyin_initials": "ylcwsq"
     },
     "橙斑翅柳莺": {
       "id": "56F0521E10B3FE4D",
@@ -20795,7 +20795,7 @@
     },
     "长尾缝叶莺": {
       "id": "AF5B727B6F62E69D",
-      "pinyin_initials": "zwfyy"
+      "pinyin_initials": "cwfyy"
     },
     "黑喉缝叶莺": {
       "id": "69618EFBCA0FC9F0",
@@ -21011,7 +21011,7 @@
     },
     "长尾鹩鹛": {
       "id": "9FAE6D78C1404C13",
-      "pinyin_initials": "zwlm"
+      "pinyin_initials": "cwlm"
     },
     "红嘴钩嘴鹛": {
       "id": "67CF1812837F0AF0",
@@ -21039,7 +21039,7 @@
     },
     "长嘴钩嘴鹛": {
       "id": "1928C4DD0949A0ED",
-      "pinyin_initials": "zzgzm"
+      "pinyin_initials": "czgzm"
     },
     "锈脸钩嘴鹛": {
       "id": "2501B11193443DA8",
@@ -21139,7 +21139,7 @@
     },
     "长嘴鹩鹛": {
       "id": "9293E8A9D1ECE641",
-      "pinyin_initials": "zzlm"
+      "pinyin_initials": "czlm"
     },
     "瑙蒙短尾鹛": {
       "id": "10D3B698DA2F722D",
@@ -21227,7 +21227,7 @@
     },
     "长尾奇鹛": {
       "id": "3C8820C7EE1AC561",
-      "pinyin_initials": "zwqm"
+      "pinyin_initials": "cwqm"
     },
     "黑顶奇鹛": {
       "id": "50BF529506689DF1",
@@ -21543,7 +21543,7 @@
     },
     "长尾地鸫": {
       "id": "37CC6F0D3367CAB8",
-      "pinyin_initials": "zwdd"
+      "pinyin_initials": "cwdd"
     },
     "光背地鸫": {
       "id": "CE0D564127D685BF",
@@ -21559,11 +21559,11 @@
     },
     "大长嘴地鸫": {
       "id": "F13C17338A46AEC3",
-      "pinyin_initials": "dzzdd"
+      "pinyin_initials": "dczdd"
     },
     "长嘴地鸫": {
       "id": "6A3FCF4859BFEDF7",
-      "pinyin_initials": "zzdd"
+      "pinyin_initials": "czdd"
     },
     "橙头地鸫": {
       "id": "F82540A0FD2E6FC9",
@@ -21591,7 +21591,7 @@
     },
     "藏乌鸫": {
       "id": "9E3252A75391D89B",
-      "pinyin_initials": "cwd"
+      "pinyin_initials": "zwd"
     },
     "棕背黑头鸫": {
       "id": "8A6BF14B32A84F8A",
@@ -21711,7 +21711,7 @@
     },
     "蓝额长脚地鸲": {
       "id": "858C33DD10218685",
-      "pinyin_initials": "lezjdq"
+      "pinyin_initials": "lecjdq"
     },
     "紫啸鸫": {
       "id": "DE6C227DB24CCC29",
@@ -21939,7 +21939,7 @@
     },
     "长嘴捕蛛鸟": {
       "id": "B4EF3CAD7F76988C",
-      "pinyin_initials": "zzbzn"
+      "pinyin_initials": "czbzn"
     },
     "纹背捕蛛鸟": {
       "id": "3E2ED01122D6785C",
@@ -21955,7 +21955,7 @@
     },
     "藏雪雀": {
       "id": "D1C4786973767170",
-      "pinyin_initials": "cxq"
+      "pinyin_initials": "zxq"
     },
     "白斑翅雪雀": {
       "id": "3E389D037AA10A4C",
@@ -21995,7 +21995,7 @@
     },
     "长尾鹦雀": {
       "id": "C8D798BAF254F949",
-      "pinyin_initials": "zwyq"
+      "pinyin_initials": "cwyq"
     },
     "高原岩鹨": {
       "id": "EB8501ADC31689EE",
@@ -22155,7 +22155,7 @@
     },
     "藏雀": {
       "id": "57C123A26077D282",
-      "pinyin_initials": "cq"
+      "pinyin_initials": "zq"
     },
     "褐头岭雀": {
       "id": "4C9486AE8D34946B",
@@ -22163,7 +22163,7 @@
     },
     "中华长尾雀": {
       "id": "92E9D19CED4BA2C9",
-      "pinyin_initials": "zhzwq"
+      "pinyin_initials": "zhcwq"
     },
     "斑翅朱雀": {
       "id": "46CD933CEC272C90",
@@ -22223,7 +22223,7 @@
     },
     "藏黄雀": {
       "id": "B902477525E63817",
-      "pinyin_initials": "chq"
+      "pinyin_initials": "zhq"
     },
     "蓝鹀": {
       "id": "F87D05C83426455C",
@@ -22251,7 +22251,7 @@
     },
     "藏鹀": {
       "id": "7A04D64EE7BAAE9E",
-      "pinyin_initials": "cw"
+      "pinyin_initials": "zw"
     },
     "褐头牛鹂": {
       "id": "1E1AB415D083AAD4",
