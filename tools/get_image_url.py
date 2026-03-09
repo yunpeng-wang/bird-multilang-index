@@ -4,10 +4,9 @@ Provide functions for requesting image url from Wikimedia Commons
 
 from bs4 import BeautifulSoup as BS
 from bs4 import Tag
-import requests
 import time
 import json
-from common import JSON_PATH
+from common import JSON_PATH, robo_requests
 
 HEADERS = {
     "User-Agent": "BirdNameIndexBot/1.0 (https://yunpeng-wang.github.io/bird-multilang-index/)"
@@ -26,23 +25,19 @@ def get_image_from_category(scientific_name):
 
     name_arr = preprocess_name(scientific_name)
     concat_name = "_".join(name_arr)
-    try:
-        response = requests.get(url + concat_name, headers=HEADERS, timeout=10)
-        if response.status_code == 200:
-            soup = BS(response.text, "html.parser")
-            container = soup.find(id="wdinfobox")
-            if isinstance(container, Tag):
-                img = container.find("img", class_="mw-file-element")
-                if isinstance(img, Tag):
-                    img_link = img.get("src")
-        else:
-            print(f"Failed! Code:{response.status_code}")
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error for {scientific_name}: {e}")
+    response = robo_requests(url=url + concat_name, custom_headers=HEADERS)
+    if response is not None:
+        soup = BS(response.text, "html.parser")
+        container = soup.find(id="wdinfobox")
+        if isinstance(container, Tag):
+            img = container.find("img", class_="mw-file-element")
+            if isinstance(img, Tag):
+                img_link = img.get("src")
+    else:
+        print(f"Skip {scientific_name}...")
 
     if img_link == "":
-        print(f"Error for {scientific_name}")
+        print(f"Img src empty for {scientific_name}")
 
     return img_link
 
@@ -57,10 +52,10 @@ def get_image_from_api(scientific_name):
         "titles": scientific_name,
     }
 
-    try:
-        r = requests.get(url, params=params, headers=HEADERS, timeout=10)
-        r.raise_for_status()
-        data = r.json()
+    response = robo_requests(url=url, custom_params=params, custom_headers=HEADERS)
+    if response is not None:
+        response.raise_for_status()
+        data = response.json()
 
         pages = data["query"]["pages"]
         for page in pages.values():
@@ -68,9 +63,8 @@ def get_image_from_api(scientific_name):
                 return page["original"]["source"]
 
         return None
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error for {scientific_name}: {e}")
+    else:
+        print(f"Skip {scientific_name}...")
         return None
 
 
